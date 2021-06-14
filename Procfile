@@ -1,1 +1,1 @@
-web: java -jar -Dserver.port=$PORT target/mariageJoelPatricia.jar
+web: java -jar -Dserver.port=$PORT target/mariagejoelpatricia.jar

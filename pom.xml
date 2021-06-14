@@ -13,7 +13,7 @@
     <groupId>com.mariage.joelpatricia</groupId>
     <artifactId>MariageJoelPatricia</artifactId>
     <version>1.0.0.RELEASE</version>
-
+    <packaging>jar</packaging>
     <name>MariageJoelPatricia</name>
     <description>Gestion des entrées et sorties dans la soirée dansante du mariage de Joël et Patricia</description>
 

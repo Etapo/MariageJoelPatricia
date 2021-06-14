@@ -37,7 +37,7 @@ public class Initializer implements ApplicationRunner {
         if (codeBarreRepository.count() == 0) {
             //On génère 500 code barres
 
-            for (int i = 0; i < 500; i++) {
+            for (int i = 0; i < 600; i++) {
                 CodeBarre codeBarre = new CodeBarre();
                 UtilsMethods.createID(codeBarre);
                 UtilsMethods.loadCreationAttributes(Boolean.TRUE, codeBarre, Boolean.TRUE);

@@ -59,11 +59,9 @@ public class ApiController {
     /**
      * S'authentifier
      * @param genericHeader
-     * @return
-     * @throws Exception 
      */
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<WebData> authenticate(@RequestBody GenericHeader genericHeader) throws Exception {
+    public ResponseEntity<WebData> authenticate(@RequestBody GenericHeader genericHeader) {
 
         WebData webData = new WebData();
         User user = userService.connect(genericHeader.getEntityId());

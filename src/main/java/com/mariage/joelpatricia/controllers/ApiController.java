@@ -288,6 +288,7 @@ public class ApiController {
     @Transactional
     public ResponseEntity<WebData> updateGuest(@RequestBody GuestDto guestDto) {
 
+        System.out.println(guestDto);
         WebData webData = new WebData();
         webData.setOperationDate(System.currentTimeMillis());
 
@@ -449,6 +450,31 @@ public class ApiController {
         ServiceMessage message = new ServiceMessage(0, "Opération effectuée avec succès");
 
         guest = guestService.markGuestAbsent(guest.getId());
+        webData.getGuestDtos().add(new GuestDto(guest));
+        webData.setMessage(message);
+        return new ResponseEntity(webData, HttpStatus.OK);
+    }
+    
+    /**
+     * Remettre le billet à l'invité
+     * @param genericHeader
+     */
+    @RequestMapping(value = "/guests/hand", method = RequestMethod.POST)
+    public ResponseEntity<WebData> handOverTicket(@RequestBody GenericHeader genericHeader) {
+
+        WebData webData = new WebData();
+        webData.setOperationDate(System.currentTimeMillis());
+
+        Guest guest = utilsComponent.findGuestById(genericHeader.getEntityId());
+        if (guest == null) {
+            ServiceMessage message = new ServiceMessage(2, "Error : Invité inconnu");
+            webData.setMessage(message);
+            return new ResponseEntity(webData, HttpStatus.OK);
+        }
+
+        ServiceMessage message = new ServiceMessage(0, "Opération effectuée avec succès");
+
+        guest = guestService.handOverGuestTicket(guest.getId());
         webData.getGuestDtos().add(new GuestDto(guest));
         webData.setMessage(message);
         return new ResponseEntity(webData, HttpStatus.OK);

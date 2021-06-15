@@ -5,6 +5,7 @@
  */
 package com.mariage.joelpatricia.controllers;
 
+import com.mariage.joelpatricia.MariageJoelPatriciaApplication;
 import com.mariage.joelpatricia.components.PrintCodeBarreUtils;
 import com.mariage.joelpatricia.components.UtilsComponent;
 import com.mariage.joelpatricia.entities.CodeBarre;
@@ -59,6 +60,7 @@ public class CodeBarreController {
                 UtilsMethods.loadCreationAttributes(Boolean.TRUE, codeBarre, Boolean.TRUE);
                 String codeBarreValue = utilsComponent.buildCodeBarreValue(20);
                 codeBarre.setCodeBarreValue(codeBarreValue);
+                codeBarre.setCodeBarreEncrypted(MariageJoelPatriciaApplication.encryption.encryptText(codeBarreValue));
                 codeBarre.setStatut(Boolean.FALSE);
                 codeBarre.setSequence(i + 1);
                 codeBarreRepository.save(codeBarre);

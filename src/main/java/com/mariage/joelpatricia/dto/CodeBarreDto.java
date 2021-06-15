@@ -18,6 +18,7 @@ public class CodeBarreDto extends EntityDto {
 
     private String sequence;
     private String codeBarreValue;
+    private String codeBarreEncrypted;
     private Boolean statut;
 
     public CodeBarreDto() {
@@ -37,6 +38,7 @@ public class CodeBarreDto extends EntityDto {
         DateFormat dateFormat = new SimpleDateFormat(format);
         this.sequence = UtilsMethods.completeCode(codeBarre.getSequence());
         this.codeBarreValue = codeBarre.getCodeBarreValue();
+        this.codeBarreEncrypted = codeBarre.getCodeBarreEncrypted();
         this.statut = codeBarre.getStatut();
     }
 
@@ -75,9 +77,17 @@ public class CodeBarreDto extends EntityDto {
         this.statut = statut;
     }
 
+    public String getCodeBarreEncrypted() {
+        return codeBarreEncrypted;
+    }
+
+    public void setCodeBarreEncrypted(String codeBarreEncrypted) {
+        this.codeBarreEncrypted = codeBarreEncrypted;
+    }
+
     @Override
     public String toString() {
-        return "CodeBarreDto{" + "sequence=" + sequence + ", codeBarreValue=" + codeBarreValue + ", statut=" + statut + '}';
+        return "CodeBarreDto{" + "sequence=" + sequence + ", codeBarreValue=" + codeBarreValue + ", codeBarreEncrypted=" + codeBarreEncrypted + ", statut=" + statut + '}';
     }
 
 }

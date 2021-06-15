@@ -155,5 +155,19 @@ public class GuestService {
         guest = guestRepository.save(guest);
         return guest;
     }
+    
+    /**
+     * Remettre le billet physiquement à l'invité
+     *
+     * @param guestId
+     * @return
+     */
+    public Guest handOverGuestTicket(String guestId) {
+        Guest guest = utilsComponent.findGuestById(guestId);
+        guest.setStatus(Boolean.TRUE);
+        UtilsMethods.loadCreationAttributes(Boolean.FALSE, guest, Boolean.TRUE);
+        guest = guestRepository.save(guest);
+        return guest;
+    }
 
 }

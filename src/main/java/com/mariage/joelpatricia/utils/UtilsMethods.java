@@ -7,7 +7,6 @@ package com.mariage.joelpatricia.utils;
 
 import com.mariage.joelpatricia.entities.AbstractEntity;
 import com.mariage.joelpatricia.entities.User;
-import java.util.Random;
 
 /**
  *

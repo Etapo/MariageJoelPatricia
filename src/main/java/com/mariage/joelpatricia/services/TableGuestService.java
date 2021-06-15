@@ -66,7 +66,6 @@ public class TableGuestService {
     public TableGuest update(TableGuestDto tableGuestDto) {
 
         TableGuest tableGuest = utilsComponent.findTableGuestById(tableGuestDto.getId());
-        UtilsMethods.createID(tableGuest);
         UtilsMethods.loadCreationAttributes(Boolean.FALSE, tableGuest, Boolean.TRUE);
 
         tableGuestDto.copyTo(tableGuest);

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * @author Etapo
+ * @author <a href="mailto:sylvainonguene@gmail.com">Denis ETABA</a>
  */
 public class Encryption implements Serializable {
 

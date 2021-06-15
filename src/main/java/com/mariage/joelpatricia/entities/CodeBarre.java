@@ -33,6 +33,10 @@ public class CodeBarre extends AbstractEntity {
     @Column(name = "statut")
     private Boolean statut;
 
+    @Size(min = 10, max = 190)
+    @Column(name = "code_barre_encrypted", length = 100, nullable = true)
+    private String codeBarreEncrypted;
+
     public CodeBarre() {
     }
 
@@ -62,6 +66,14 @@ public class CodeBarre extends AbstractEntity {
 
     public void setStatut(Boolean statut) {
         this.statut = statut;
+    }
+
+    public String getCodeBarreEncrypted() {
+        return codeBarreEncrypted;
+    }
+
+    public void setCodeBarreEncrypted(String codeBarreEncrypted) {
+        this.codeBarreEncrypted = codeBarreEncrypted;
     }
 
     @Override

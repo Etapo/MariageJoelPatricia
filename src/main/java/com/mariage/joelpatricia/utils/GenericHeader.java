@@ -15,6 +15,7 @@ public class GenericHeader implements Serializable {
 
     private String entityId;
     private Long lastDateUpdate;
+    private Boolean downloadCode;
 
     public GenericHeader() {
     }
@@ -35,9 +36,17 @@ public class GenericHeader implements Serializable {
         this.lastDateUpdate = lastDateUpdate;
     }
 
+    public Boolean getDownloadCode() {
+        return downloadCode;
+    }
+
+    public void setDownloadCode(Boolean downloadCode) {
+        this.downloadCode = downloadCode;
+    }
+
     @Override
     public String toString() {
-        return "GenericHeader{" + "entityId=" + entityId + ", lastDateUpdate=" + lastDateUpdate + '}';
+        return "GenericHeader{" + "entityId=" + entityId + ", lastDateUpdate=" + lastDateUpdate + ", downloadCode=" + downloadCode + '}';
     }
 
 }

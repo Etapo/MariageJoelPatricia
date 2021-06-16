@@ -52,12 +52,13 @@ public class ApiController {
 
     @Autowired
     private UserService userService;
-    
+
     @Autowired
     private CodeBarreService codeBarreService;
 
     /**
      * S'authentifier
+     *
      * @param genericHeader
      */
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -92,7 +93,10 @@ public class ApiController {
         User user = utilsComponent.findUserById(genericHeader.getEntityId());
         if (user != null) {
             if (user.getStatut()) {
-                webData.getCodeBarreDtos().addAll(codeBarreService.retrieve());
+
+                if (genericHeader.getDownloadCode() != null && genericHeader.getDownloadCode()) {
+                    webData.getCodeBarreDtos().addAll(codeBarreService.retrieve());
+                }
                 webData.getTableGuestDtos().addAll(tableGuestService.retrieve());
                 webData.getGuestDtos().addAll(guestService.retrieve());
                 webData.getUserDtos().addAll(userService.retrieve());
@@ -454,9 +458,10 @@ public class ApiController {
         webData.setMessage(message);
         return new ResponseEntity(webData, HttpStatus.OK);
     }
-    
+
     /**
      * Remettre le billet à l'invité
+     *
      * @param genericHeader
      */
     @RequestMapping(value = "/guests/hand", method = RequestMethod.POST)
